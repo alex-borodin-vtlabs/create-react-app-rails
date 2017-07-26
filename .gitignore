@@ -14,7 +14,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/node_modules/
 !/log/.keep
 !/tmp/.keep
+/public/*
+!/public/robots.txt
 
 .byebug_history
