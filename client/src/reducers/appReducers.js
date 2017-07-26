@@ -14,7 +14,26 @@ export default function appReducers(state = initialState, action = null) {
         example: data,
       });
     }
+    case c.REQUEST_BEGIN: {
+      return state.merge({
+        isFetching: true,
+      });
+    }
 
+    case c.REQUEST_SUCCESS: {
+      // console.log(Immutable.fromJS(data));
+      return state.merge({
+        isFetching: false,
+        [keyword]: Immutable.fromJS(data),
+      });
+    }
+
+    case c.REQUEST_ERROR: {
+      return state.merge({
+        isFetching: false,
+      });
+    }
+    
     default: {
       return state;
     }

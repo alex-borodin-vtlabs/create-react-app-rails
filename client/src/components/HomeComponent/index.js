@@ -9,6 +9,10 @@ class HomeComponent extends Component {
     location: PropTypes.object.isRequired,
   };
 
+  componentDidMount() {
+    this.props.actions.callApi('example');
+  }
+
   render() {
     return (
       <div>
