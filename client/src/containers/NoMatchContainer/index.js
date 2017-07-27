@@ -11,7 +11,7 @@ import * as actionCreators from '../../actions';
 
 function select(state) {
   // Which part of the Redux global state does our component want to receive as props?
-  return { data: state };
+  return { data: state.appReducers };
 }
 
 class NoMatchContainer extends Component {

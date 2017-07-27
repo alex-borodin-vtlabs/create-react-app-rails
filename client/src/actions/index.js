@@ -40,9 +40,9 @@ export const callApi = ((fetchUrl,
   .then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
-    console.log('request succeeded with JSON response', data)
+    if (success) {success()} else {dispatch(requestSuccess(data, keyword))};
   }).catch(function(error) {
-    console.log('request failed', error)
+    if (error) {error()} else {dispatch(requestError(data, keyword))};
   })
 
 });

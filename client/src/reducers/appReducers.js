@@ -2,7 +2,8 @@ import Immutable from 'immutable';
 import * as c from '../constants';
 
 export const initialState = Immutable.fromJS({
-  example: false,
+  isFetching: false,
+  example: undefined,
 });
 
 export default function appReducers(state = initialState, action = null) {
@@ -33,7 +34,7 @@ export default function appReducers(state = initialState, action = null) {
         isFetching: false,
       });
     }
-    
+
     default: {
       return state;
     }

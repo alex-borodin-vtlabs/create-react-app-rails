@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import SecondComponent from '../../components/SecondComponent';
+
+import LoadeComponent from '../../components/LoaderComponent';
 import * as actionCreators from '../../actions';
 
 
@@ -14,24 +15,20 @@ function select(state) {
   return { data: state.appReducers };
 }
 
-class SecondContainer extends Component {
+class LoaderContainer extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
-    location: PropTypes.shape({
-      state: PropTypes.object,
-    }).isRequired,
   };
 
   render() {
     const { dispatch, data, params } = this.props;
     const actions = bindActionCreators(actionCreators, dispatch);
-    const location = this.props.location;
     return (
-      <SecondComponent {...{ actions, data, location, params }} />
+      <LoadeComponent {...{ actions, data, params }} />
     );
   }
 }
 
 // Don't forget to actually use connect!
-export default connect(select)(SecondContainer);
+export default connect(select)(LoaderContainer);
